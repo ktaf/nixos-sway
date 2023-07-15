@@ -13,10 +13,10 @@ let
     executable = true;
 
     text = ''
-    dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-    systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-    systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-      '';
+      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+      systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+      systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+    '';
   };
 
   # currently, there is some friction between sway and gtk:
@@ -26,22 +26,20 @@ let
   # using the XDG_DATA_DIR environment variable
   # run at the end of sway config
   configure-gtk = pkgs.writeTextFile {
-      name = "configure-gtk";
-      destination = "/bin/configure-gtk";
-      executable = true;
-      text = let
-        schema = pkgs.gsettings-desktop-schemas;
-        datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-      in ''
-        export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-        gnome_schema=org.gnome.desktop.interface
-        gsettings set $gnome_schema gtk-theme 'Dracula'
-        '';
+    name = "configure-gtk";
+    destination = "/bin/configure-gtk";
+    executable = true;
+    text = let
+      schema = pkgs.gsettings-desktop-schemas;
+      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+    in ''
+      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+      gnome_schema=org.gnome.desktop.interface
+      gsettings set $gnome_schema gtk-theme 'Dracula'
+    '';
   };
 
-
-in
-{
+in {
   environment.systemPackages = with pkgs; [
     alacritty # gpu accelerated terminal
     dbus-sway-environment
@@ -57,7 +55,7 @@ in
     xdg-utils # for opening default programs when clicking links
     glib # gsettings
     dracula-theme # gtk theme
-    gnome3.adwaita-icon-theme  # default gnome cursors
+    gnome3.adwaita-icon-theme # default gnome cursors
     #########Login#########
     swaylock
     swaylock-effects
@@ -66,7 +64,7 @@ in
     swaycons
     swww
     wlogout
-    swaybg   
+    swaybg
     grim # screenshot functionality
     slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
@@ -74,13 +72,11 @@ in
     wdisplays # tool to configure displays
   ];
 
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
   };
-
 
   # xdg-desktop-portal works by exposing a series of D-Bus interfaces
   # known as portals under a well-known name
@@ -100,10 +96,7 @@ in
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
-    extraOptions = ["--unsupported-gpu"];
-    extraPackages = with pkgs; [
-      i3status i3status-rust i3blocks
-      light
-   ];
+    extraOptions = [ "--unsupported-gpu" ];
+    extraPackages = with pkgs; [ i3status i3status-rust i3blocks light ];
   };
 }

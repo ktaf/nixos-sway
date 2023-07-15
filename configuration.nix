@@ -1,21 +1,24 @@
-{ config, pkgs, lib, inputs, user,  modulesPath, ... }:
-{
+{ config, pkgs, lib, inputs, user, modulesPath, ... }: {
   # Include the results of the hardware scan.
-    imports = [ ./hardware-configuration.nix 
+  imports = [
+    ./hardware-configuration.nix
     ./modules/shell.nix
     ./modules/users.nix
     ./modules/nvidia.nix
     ./modules/gaming.nix
     ./modules/sway.nix
-    ./modules/vm.nix];
+    ./modules/vm.nix
+  ];
 
   #fonts
-    fonts.fonts = with pkgs; [
-      font-awesome
-     (nerdfonts.override { fonts = [ "IBMPlexMono" "Hack" "FiraCode" "JetBrainsMono" ]; })
-     ];
+  fonts.fonts = with pkgs; [
+    font-awesome
+    (nerdfonts.override {
+      fonts = [ "IBMPlexMono" "Hack" "FiraCode" "JetBrainsMono" ];
+    })
+  ];
   #emojis
-    services.gollum.emoji = true;
+  services.gollum.emoji = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -44,7 +47,6 @@
     LC_TELEPHONE = "en_GB.UTF-8";
     LC_TIME = "en_GB.UTF-8";
   };
-  
 
   # Enable the X11 windowing system.
   services.xserver = {
@@ -52,9 +54,9 @@
 
   };
 
-services.xserver.displayManager.lightdm.enable = false;
+  services.xserver.displayManager.lightdm.enable = false;
 
-#swaylock pass verify
+  #swaylock pass verify
   security.pam.services.swaylock = { };
 
   #Flatpak
@@ -76,75 +78,74 @@ services.xserver.displayManager.lightdm.enable = false;
 
     #isDefault
     #wireplumber.enable= true;
-  
+
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
 
- # Allow unfree packages
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-services.dbus.enable = true;
-# XDG Configuration
-xdg.portal = {
-  enable = true;
-  extraPortals = with pkgs; [
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-  ];
-  wlr.enable = true;
-};
+  services.dbus.enable = true;
+  # XDG Configuration
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
+    ];
+    wlr.enable = true;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
- # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     vim
-     wget
-     git
-     gh
+    # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
+    wget
+    git
+    gh
   ];
 
-# List services that you want to enable:
+  # List services that you want to enable:
 
-# Enable the OpenSSH daemon.
-services.openssh.enable = true;
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
 
-# Enable the Bluethooth daemon.
-hardware.bluetooth.enable = true;
-services.blueman.enable = true;
+  # Enable the Bluethooth daemon.
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
-# Enable CUPS to print documents.
-services.printing.enable = true;
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
-# Enable touchpad support (enabled default in most desktopManager).
-services.xserver.libinput.enable = true;
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.xserver.libinput.enable = true;
 
-#tlp
-services.tlp.enable = true;
+  #tlp
+  services.tlp.enable = true;
 
-#auto-cpufreq
-services.auto-cpufreq.enable = true;
+  #auto-cpufreq
+  services.auto-cpufreq.enable = true;
 
-#upower dbus
-services.upower.enable = true;
+  #upower dbus
+  services.upower.enable = true;
 
-# Enable Firmware manager
-services.fwupd = {
-  enable = true;
-  package = pkgs.fwupd;
-};
-
+  # Enable Firmware manager
+  services.fwupd = {
+    enable = true;
+    package = pkgs.fwupd;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-    #For Chromecast from chrome
-#    networking.firewall.allowedUDPPortRanges = [ { from = 32768; to = 60999; } ];
+  #For Chromecast from chrome
+  #    networking.firewall.allowedUDPPortRanges = [ { from = 32768; to = 60999; } ];
   # Or disable the firewall altogether.
-   networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # system.autoUpgrade.enable = true;  
   # system.autoUpgrade.allowReboot = true; 

@@ -3,13 +3,11 @@
 #   ./pci-passthrough.nix
 # to /etc/nixos/configuration.nix in `imports`
 
-{config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 with lib;
-let
-  cfg = config.pciPassthrough;
-in
-{
+let cfg = config.pciPassthrough;
+in {
   ###### interface
   options.pciPassthrough = {
     enable = mkEnableOption "PCI Passthrough";
@@ -28,7 +26,7 @@ in
     libvirtUsers = mkOption {
       description = "Extra users to add to libvirtd (root is already included)";
       type = types.listOf types.str;
-      default = [];
+      default = [ ];
     };
   };
 
@@ -40,7 +38,7 @@ in
     # These modules are required for PCI passthrough, and must come before early modesetting stuff
     boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" "vfio_virqfd" ];
 
-    boot.extraModprobeConfig ="options vfio-pci ids=${cfg.pciIDs}";
+    boot.extraModprobeConfig = "options vfio-pci ids=${cfg.pciIDs}";
 
     environment.systemPackages = with pkgs; [
       #virtmanager
