@@ -12,7 +12,7 @@
   #fonts
     fonts.fonts = with pkgs; [
       font-awesome
-     (nerdfonts.override { fonts = [ "IntelOneMono" "IBMPlexMono" "Hack" "FiraCode" "JetBrainsMono" ]; })
+     (nerdfonts.override { fonts = [ "IBMPlexMono" "Hack" "FiraCode" "JetBrainsMono" ]; })
      ];
   #emojis
     services.gollum.emoji = true;
@@ -46,14 +46,14 @@
   };
   
 
-  # # Enable the X11 windowing system.
-  # services.xserver = {
-  #   enable = true;
-  #   displayManager = { 
-  #     defaultSession = "hyprland";
-  #     sessionPackages = [ pkgs.hyprland ];
-  #   };
-  # };
+  # Enable the X11 windowing system.
+  services.xserver = {
+    enable = true;
+    # displayManager = { 
+    #   defaultSession = "hyprland";
+    #   sessionPackages = [ pkgs.hyprland ];
+    # };
+  };
   
   # #sddm
   # services.xserver.displayManager.sddm = {
@@ -116,7 +116,6 @@ xdg.portal = {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
  # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     hyprland
      vim
      wget
      git
@@ -165,8 +164,8 @@ services.fwupd = {
   # Or disable the firewall altogether.
    networking.firewall.enable = false;
 
-  system.autoUpgrade.enable = true;  
-  system.autoUpgrade.allowReboot = true; 
+  # system.autoUpgrade.enable = true;  
+  # system.autoUpgrade.allowReboot = true; 
   system.autoUpgrade.channel = "https://channels.nixos.org/nixos-23.05";
   system.stateVersion = "23.05"; # Did you read the comment?
 }
