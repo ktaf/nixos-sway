@@ -26,14 +26,15 @@ outputs = inputs @ { self, nixpkgs, home-manager, treefmt-nix, ... }:
         ${user} = nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {inherit user;};
-            modules = [ ./configuration.nix 
-            home-manager.nixosModules.home-manager
-            {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit user;};
-            home-manager.users.${user} = import ./modules/home.nix;
-            }
+            modules = [
+              ./configuration.nix
+              ./hardware-configuration.nix
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {inherit user;};
+              home-manager.users.${user} = import ./modules/home.nix;
+              }
             ];
           };
         };

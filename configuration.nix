@@ -52,6 +52,8 @@
 
   };
 
+services.xserver.displayManager.lightdm.enable = false;
+
 #swaylock pass verify
   security.pam.services.swaylock = { };
 
