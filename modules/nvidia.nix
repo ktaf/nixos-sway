@@ -2,7 +2,7 @@
 {
 
 services.xserver = {
-  videoDrivers = [ "modesetting" "nvidia" ];
+  videoDrivers = [ "modesetting" "nouveau" ];
 
   config = ''
     Section "Device"

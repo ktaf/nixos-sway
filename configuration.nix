@@ -49,24 +49,8 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    # displayManager = { 
-    #   defaultSession = "hyprland";
-    #   sessionPackages = [ pkgs.hyprland ];
-    # };
+
   };
-  
-  # #sddm
-  # services.xserver.displayManager.sddm = {
-  #   enable = true;
-  #   autoNumlock = true;
-  #   autoLogin.relogin = true;
-  #   theme = "elarun";
-  #   settings = {
-  #     Autologin = {
-  #       Session = "hyprland.desktop";
-  #       User = "${user}";
-  #   };
-  #   };};
 
 #swaylock pass verify
   security.pam.services.swaylock = { };
@@ -145,10 +129,6 @@ services.auto-cpufreq.enable = true;
 
 #upower dbus
 services.upower.enable = true;
-powerManagement = {
-  enable = true;
-  cpuFreqGovernor = "ondemand";
-};
 
 # Enable Firmware manager
 services.fwupd = {

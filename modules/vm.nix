@@ -2,9 +2,6 @@
 
 {
 
-  # Enable dconf (System Management Tool)
-  programs.dconf.enable = true;
-
   # Add user to libvirtd group
   users.users.${user}.extraGroups = [ "libvirtd" ];
 

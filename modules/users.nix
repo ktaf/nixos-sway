@@ -10,10 +10,6 @@ users.users.${user} = {
   packages = with pkgs; [
     auto-cpufreq
     waybar                                    #topbar 
-    wayland-protocols
-    libsForQt5.qt5.qtwayland
-    libsForQt5.plasma-wayland-protocols
-    qt6.qtwayland
     kanshi                                    #laptop dncies
     rofi mako rofimoji                        #Drawer + notifications
     jellyfin-ffmpeg                           #multimedia libs
@@ -33,13 +29,6 @@ users.users.${user} = {
     playerctl                                 #play,pause..
     pamixer                                   #mixer
     brightnessctl                             #Brightness control
-    wlr-randr
-    wayland
-    wayland-scanner
-    wayland-utils
-    egl-wayland
-    xorg.xeyes
-    glfw-wayland
     wev    
     alsa-lib
     alsa-utils
@@ -52,13 +41,10 @@ users.users.${user} = {
     flameshot
     bluez
     blueman
-    gnome.file-roller
     htop
     intel-media-driver
     jetbrains-mono
     libva
-    libsForQt5.qt5ct
-    libsForQt5.sddm
     linuxHeaders
     lxappearance
     networkmanagerapplet
@@ -67,15 +53,11 @@ users.users.${user} = {
     libva-utils
     glxinfo
     polkit_gnome
-    wofi
-    xfce.xfce4-settings
     xdg-desktop-portal-wlr
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     electron
-    wayland
     xdg-utils # for opening default programs when clicking links
-    gnome3.adwaita-icon-theme  # default gnome cursors
     grim # screenshot functionality
     slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
@@ -87,28 +69,15 @@ users.users.${user} = {
     glib # gsettings
     xcur2png
     rubyPackages.glib2
-    libcanberra-gtk3                          #notification sound
-    dracula-theme # gtk theme
-    #########Login#########
-    swaylock
-    swaylock-effects
-    swayidle
-    swappy
-    swaycons
-    swww
-    wlogout
-    swaybg    
+    libcanberra-gtk3       #notification sound 
     #########System#########
     kitty
     zsh
     google-chrome
     firefox
-    gnome.gnome-system-monitor
     libnotify
     poweralertd
     dbus
-    #gsettings-desktop-schemas
-    #wrapGAppsHook
     ####photoshop dencies####
     gnome.zenity
     wine64Packages.waylandFull
