@@ -88,7 +88,6 @@
       rubyPackages.glib2
       libcanberra-gtk3 # notification sound
       #########System#########
-      kitty
       zsh
       google-chrome
       firefox

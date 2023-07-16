@@ -97,6 +97,6 @@ in {
     enable = true;
     wrapperFeatures.gtk = true;
     extraOptions = [ "--unsupported-gpu" ];
-    extraPackages = with pkgs; [ i3status i3status-rust i3blocks light ];
+    extraPackages = with pkgs; [ light ];
   };
 }

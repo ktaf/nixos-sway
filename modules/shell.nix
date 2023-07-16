@@ -12,8 +12,7 @@
       k = "kubectl";
       kx = "kubectx";
       tf = "terraform";
-      rebase =
-        "'git checkout master && git pull && git checkout - && git rebase master'";
+      rebase = "'git checkout master && git pull && git checkout - && git rebase master'";
       switch = "sudo nixos-rebuild switch --flake .#${user}";
       switchu = "sudo nixos-rebuild switch --upgrade --flake .#${user}";
       clean = "sudo nix-collect-garbage -d";
