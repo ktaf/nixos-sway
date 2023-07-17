@@ -33,6 +33,7 @@
       viewnior # image viewr
       pavucontrol # Volume control
       xfce.thunar # filemanager
+      font-awesome
       gnome-text-editor
       gnome.file-roller
       gnome.gnome-font-viewer

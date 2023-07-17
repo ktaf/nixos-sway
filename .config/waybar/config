@@ -1,55 +1,64 @@
 {
-  "height":25,
+  "height":30,
+  "margin": "0 0 0 0",
   "layer":"bottom",
-  "position": "top",
-  "mod": "dock",
-  "exclusive": true,
-  "passthrough": false,
-  "gtk-layer-shell": true,
-  "modules-left": ["custom/launcher", "sway/workspaces", "sway/mode"],
-  "modules-center": ["mpris", "custom/media"],
-  "modules-right": ["cpu", "memory", "temperature", "backlight", "pulseaudio", "network", "bluetooth", "battery", "keyboard-state", "sway/language", "tray", "custom/power-menu"],
-  "sway/workspaces": {
-      "format": "{icon}",
-      "format-icons": {
-          "1": "一", 
-          "2": "二", 
-          "3": "三", 
-          "4": "四", 
-          "5": "五", 
-          "6": "六", 
-          "7": "七", 
-          "8": "八", 
-          "9": "九", 
-          "10": "十"
-      } 
-},
-  "sway/mode": {
-      "format": "<span style=\"italic\">{}</span>"
+  "position":"top",
+  "mod":"dock",
+  "exclusive":true,
+  "passthrough":false,
+  "gtk-layer-shell":true,
+  "modules-left":[
+    "custom/launcher",
+    "sway/workspaces",
+    "sway/mode"
+  ],
+  "modules-center":[
+    "mpris"
+  ],
+  "modules-right":[
+    "cpu",
+    "memory",
+    "temperature",
+    "backlight",
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "battery",
+    "keyboard-state",
+    "clock",
+    "sway/language",
+    "tray",
+    "custom/power-menu"
+  ],
+  "sway/workspaces":{
+    "format":"{icon}",
+    "format-icons":{
+      "1":"一",
+      "2":"二",
+      "3":"三",
+      "4":"四",
+      "5":"五",
+      "6":"六",
+      "7":"七",
+      "8":"八",
+      "9":"九",
+      "10":"十"
+    }
   },
-  "tray": {
+  "sway/mode":{
+    "format":"<span style=\"italic\">{}</span>"
+  },
+  "tray":{
     "icon-size":16,
     "spacing":8
   },
-"custom/left-arrow-dark-1": {
-  "format": ""
-},
-"custom/left-arrow-dark-2": {
-  "format": ""
-},
-"custom/left-arrow-light": {
-  "format": ""
-},
-"custom/right-arrow-dark-1": {
-  "format": ""
-},
-"custom/right-arrow-dark-2": {
-  "format": ""
-},
-"custom/right-arrow-light": {
-  "format": ""
-},
-  "cpu": {
+  "clock":{
+    "format":" {:%H:%M  %a %d %b}",
+    "tooltip-format":"{:%A %B %d %Y | %H:%M}",
+    "format-alt":"  {:%d/%m/%Y  %H:%M:%S}",
+    "interval":60
+  },
+  "cpu":{
     "interval":10,
     "format":" {usage}%",
     "max-length":10,
@@ -61,25 +70,39 @@
     "format-alt":" {used:0.1f}GB",
     "max-length":10,
     "on-click":"alacritty -e sh -c 'htop -s PERCENT_MEM'"
- },
+  },
+  "mpris":{
+    "format":"{player_icon} {title}",
+    "format-paused":"<b>{status_icon}</b>",
+    "player-icons":{
+      "default":"▶",
+      "mpv":"🎵"
+    },
+    "status-icons":{
+      "paused":"⏸"
+    }
+  },
   "temperature":{
     "thermal-zone":1,
-    "format":" {temperatureC}°C",
+    "format":" {temperatureC}°",
     "critical-threshold":70,
-    "format-critical":" {temperatureC}°C"
- },
-  "backlight": {
-    "format": "{icon}",
-    "format-icons": ["", ""],
-    "tooltip-format": "{percent}%"
+    "format-critical":" {temperatureC}°"
+  },
+  "backlight":{
+    "format":"{icon}",
+    "format-icons":[
+      "",
+      ""
+    ],
+    "tooltip-format":"{percent}%"
   },
   "battery":{
     "bat":"BAT0",
     "adapter":"ADP0",
     "interval":60,
     "states":{
-       "warning":19,
-       "critical":9
+      "warning":19,
+      "critical":9
     },
     "max-length":20,
     "format":"{icon} ",
@@ -91,21 +114,21 @@
     "format-alt":"{icon}<small> {time}</small>",
     "format-full":"󰂄",
     "format-icons":[
-       "󱊡",
-       "󱊢",
-       "󱊣"
+      "󱊡",
+      "󱊢",
+      "󱊣"
     ]
- },
- "bluetooth": {
-  "format": "{icon}",
-  "format-alt": "bluetooth: {status}",
-  "interval": 30,
-  "format-icons": {
-       "enabled": "",
-       "disabled": "󰂲"
   },
-  "tooltip-format": "{status}"
-},
+  "bluetooth":{
+    "format":"{icon}",
+    "format-alt":"bluetooth: {status}",
+    "interval":30,
+    "format-icons":{
+      "enabled":"",
+      "disabled":"󰂲"
+    },
+    "tooltip-format":"{status}"
+  },
   "network":{
     "format-wifi":"",
     "format-ethernet":"{ipaddr}/{cidr}",
@@ -117,51 +140,44 @@
     "on-click":"~/.config/waybar/scripts/network/rofi-network-manager.sh",
     "on-click-right":"nm-connection-editor",
     "format-icons":[
-       "󰤯",
-       "󰤟",
-       "󰤢",
-       "󰤥",
-       "󰤨"
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
     ]
- },
-  "pulseaudio": {
-      "format": "{icon}",
-      "format-bluetooth": "{icon}",
-      "format-muted": "",
-      "format-icons": {
-          "headphones": "",
-          "handsfree": "",
-          "headset": "",
-          "phone": "",
-          "portable": "",
-          "car": "",
-          "default": ["", ""]
-      },
-      "on-click": "pavucontrol"
   },
-  "sway/language": {
-    "format": "{flag}",
-    "min-length": 3,
-    "tooltip": true,
-    "tooltip-format": "{long}"
+  "pulseaudio":{
+    "format":"{icon}",
+    "format-bluetooth":"{icon}",
+    "format-muted":"",
+    "format-icons":{
+      "headphones":"",
+      "handsfree":"",
+      "headset":"",
+      "phone":"",
+      "portable":"",
+      "car":"",
+      "default":[
+        "",
+        ""
+      ]
     },
-
-  // "keyboard-state": {
-  //     "numlock": true,
-  //     "capslock": true,
-  //     "format": "{name} {icon} ",
-  //     "format-icons": {
-  //         "locked": " ",
-  //         "unlocked": ""
-  //     }
-  // },
+    "on-click":"pavucontrol"
+  },
+  "sway/language":{
+    "format":"{flag}",
+    "min-length":3,
+    "tooltip":true,
+    "tooltip-format":"{long}"
+  },
   "custom/launcher":{
     "format":"󱄅",
     "on-click":"rofi -show drun &"
- },
+  },
   "custom/power-menu":{
     "format":" ⏻ ",
-    "tooltip-format": "Lock, Reboot, Power",
+    "tooltip-format":"Lock, Reboot, Power",
     "on-click":"wlogout"
- }
+  }
 }

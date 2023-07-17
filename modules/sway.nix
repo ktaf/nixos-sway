@@ -62,6 +62,7 @@ in {
     swayidle
     swappy
     swaycons
+    swaysome
     swww
     wlogout
     swaybg
