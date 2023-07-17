@@ -10,7 +10,8 @@
   "modules-left":[
     "custom/launcher",
     "sway/workspaces",
-    "sway/mode"
+    "sway/mode",
+    "clock"
   ],
   "modules-center":[
     "mpris"
@@ -24,8 +25,8 @@
     "network",
     "bluetooth",
     "battery",
+    "custom/vpn",
     "keyboard-state",
-    "clock",
     "sway/language",
     "tray",
     "custom/power-menu"
@@ -174,6 +175,10 @@
   "custom/launcher":{
     "format":"󱄅",
     "on-click":"rofi -show drun &"
+  },
+  "custom/vpn":{
+    "format":"VPN",
+    "on-click":"alacritty -e sudo openfortivpn --no-dns"
   },
   "custom/power-menu":{
     "format":" ⏻ ",
