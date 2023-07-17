@@ -23,6 +23,7 @@
     android-tools
     anydesk
     bat
+    bitwarden
     fluxcd
     flutter
     fwupd
@@ -37,6 +38,7 @@
     microsoft-edge
     obsidian
     opencryptoki
+    openfortivpn
     qdigidoc
     remmina
     slack
@@ -53,7 +55,7 @@
     EDITOR = "code";
     KUBE_EDITOR = "code -w";
     BROWSER = "google-chrome-stable";
-    TERMINAL = "kitty";
+    TERMINAL = "alacritty";
     # GTK_IM_MODULE = "fcitx5";
     # QT_IM_MODULE = "fcitx5";
     # XMODIFIERS = "@im=fcitx5";

@@ -108,6 +108,7 @@
     wget
     git
     gh
+
   ];
 
   # List services that you want to enable:
@@ -139,6 +140,8 @@
     enable = true;
     package = pkgs.fwupd;
   };
+# This is needed for FortinetSSL VPN 
+  environment.etc."ppp/options".text = "ipcp-accept-remote";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -146,7 +149,9 @@
   #    networking.firewall.allowedUDPPortRanges = [ { from = 32768; to = 60999; } ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
-
+  # networking.firewall = {
+  #   allowedUDPPorts = [ 51820 ];
+  # };
   # system.autoUpgrade.enable = true;  
   # system.autoUpgrade.allowReboot = true; 
   system.autoUpgrade.channel = "https://channels.nixos.org/nixos-23.05";
