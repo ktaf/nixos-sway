@@ -54,7 +54,6 @@
       pulsemixer
       linux-firmware
       sshpass
-      rustc
       imagemagick
       flameshot
       bluez

@@ -27,6 +27,7 @@
     fluxcd
     flutter
     fwupd
+    grive2
     jq
     kind
     krew
