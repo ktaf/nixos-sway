@@ -15,8 +15,12 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu rofi -show
 
-gaps inner 3
-gaps outer 3
+gaps inner 2
+gaps outer 2
+
+# Hide gaps when there is only 1 window
+smart_gaps on
+
 default_border pixel 2 # disable window titlebar
 
 ### Output configuration
