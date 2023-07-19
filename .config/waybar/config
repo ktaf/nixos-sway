@@ -11,15 +11,15 @@
     "custom/launcher",
     "sway/workspaces",
     "sway/mode",
-    "clock"
+    "cpu",
+    "memory",
+    "temperature"
   ],
   "modules-center":[
     "mpris"
   ],
   "modules-right":[
-    "cpu",
-    "memory",
-    "temperature",
+    "clock",
     "backlight",
     "pulseaudio",
     "network",
@@ -53,12 +53,10 @@
     "icon-size":16,
     "spacing":8
   },
-  "clock":{
-    "format":" {:%H:%M  %a %d %b}",
-    "tooltip-format":"{:%A %B %d %Y | %H:%M}",
-    "format-alt":"  {:%d/%m/%Y  %H:%M:%S}",
-    "interval":60
-  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%a, %d %b, %H:%M}"
+},
   "cpu":{
     "interval":10,
     "format":" {usage}%",

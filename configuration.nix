@@ -66,7 +66,10 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio = {
+    enable = false;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+  };
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -77,7 +80,7 @@
     #jack.enable = true;
 
     #isDefault
-    #wireplumber.enable= true;
+    wireplumber.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -140,6 +143,10 @@
     enable = true;
     package = pkgs.fwupd;
   };
+  
+# Solve AT-SPI error
+  services.gnome.at-spi2-core.enable = true;
+
 # This is needed for FortinetSSL VPN 
   environment.etc."ppp/options".text = "ipcp-accept-remote";
 
