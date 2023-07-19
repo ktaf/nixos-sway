@@ -19,8 +19,6 @@ gaps inner 3
 gaps outer 3
 default_border pixel 2 # disable window titlebar
 
-font pango: SourceCodePro Medium 12
-
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)

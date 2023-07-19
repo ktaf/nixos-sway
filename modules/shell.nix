@@ -12,6 +12,7 @@
       k = "kubectl";
       kx = "kubectx";
       tf = "terraform";
+      ssh = "TERM=xterm-256color ssh";
       rebase = "'git checkout master && git pull && git checkout - && git rebase master'";
       switch = "sudo nixos-rebuild switch --flake .#${user}";
       switchu = "sudo nixos-rebuild switch --upgrade --flake .#${user}";
@@ -24,16 +25,9 @@
       plugins = [
         "history"
         "jsontools"
-        "git"
-        "github"
-        "python"
-        "flutter"
-        "golang"
         "docker"
         "kubectl"
-        "kubectx"
         "helm"
-        "aws"
         "terraform"
       ];
       theme = "agnoster"; # "dpoggi"
@@ -54,5 +48,4 @@
       "histignorespace"
     ];
   };
-
 }

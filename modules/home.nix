@@ -24,6 +24,7 @@
     anydesk
     bat
     bitwarden
+    dig
     fluxcd
     flutter
     fwupd
@@ -43,6 +44,7 @@
     qdigidoc
     remmina
     slack
+    terraform
     tdesktop
     tfautomv
     trousers
