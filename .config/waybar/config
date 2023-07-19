@@ -11,9 +11,9 @@
     "custom/launcher",
     "sway/workspaces",
     "sway/mode",
-    "cpu",
+    "temperature",
     "memory",
-    "temperature"
+    "cpu"
   ],
   "modules-center":[
     "mpris"
@@ -22,8 +22,6 @@
     "clock",
     "backlight",
     "pulseaudio",
-    "network",
-    "bluetooth",
     "battery",
     "custom/vpn",
     "keyboard-state",
@@ -116,34 +114,6 @@
       "󱊡",
       "󱊢",
       "󱊣"
-    ]
-  },
-  "bluetooth":{
-    "format":"{icon}",
-    "format-alt":"bluetooth: {status}",
-    "interval":30,
-    "format-icons":{
-      "enabled":"",
-      "disabled":"󰂲"
-    },
-    "tooltip-format":"{status}"
-  },
-  "network":{
-    "format-wifi":"",
-    "format-ethernet":"{ipaddr}/{cidr}",
-    "format-disconnected":"Disconnected ⚠",
-    "format-linked":"{ifname} (No IP)",
-    "tooltip-format":"{essid}-{ifname} via {ipaddr}/{cidr}",
-    "tooltip-format-wifi":"<small>{bandwidthUpBytes}↑ {bandwidthDownBytes}↓</small> {signalStrength}%",
-    "tooltip":"~/.config/waybar/scripts/network/rofi-network-manager.sh",
-    "on-click":"~/.config/waybar/scripts/network/rofi-network-manager.sh",
-    "on-click-right":"nm-connection-editor",
-    "format-icons":[
-      "󰤯",
-      "󰤟",
-      "󰤢",
-      "󰤥",
-      "󰤨"
     ]
   },
   "pulseaudio":{

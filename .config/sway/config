@@ -1,3 +1,9 @@
+# Notification
+exec mako 
+
+# Applets
+exec nm-applet --indicator 
+exec blueman-applet
 
 ### Variables
 #
