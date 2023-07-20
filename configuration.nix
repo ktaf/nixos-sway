@@ -150,6 +150,9 @@
 # This is needed for FortinetSSL VPN 
   environment.etc."ppp/options".text = "ipcp-accept-remote";
 
+# Custom DNS
+networking.resolvconf.enable = false;
+networking.nameservers = ["8.8.8.8" "1.1.1.1"];
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   #For Chromecast from chrome

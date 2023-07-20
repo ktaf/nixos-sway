@@ -52,6 +52,7 @@
       alsa-utils
       flac
       pulsemixer
+      peek
       linux-firmware
       sshpass
       imagemagick
