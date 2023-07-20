@@ -57,7 +57,6 @@ in {
     dracula-theme # gtk theme
     gnome3.adwaita-icon-theme # default gnome cursors
     #########Login#########
-    swaylock
     swaylock-effects
     swayidle
     swappy
