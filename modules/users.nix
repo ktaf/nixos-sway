@@ -82,10 +82,7 @@
       wdisplays # tool to configure displays
       ####GTK Customization####
       nordic
-      gnome.adwaita-icon-theme
       gnome.gnome-themes-extra
-      adwaita-qt
-      adwaita-qt6
       papirus-icon-theme
       gtk3
       glib # gsettings
