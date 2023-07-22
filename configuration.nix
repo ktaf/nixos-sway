@@ -10,6 +10,16 @@
     ./modules/vm.nix
   ];
 
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      # Deduplicate and optimize nix store
+      auto-optimise-store = true;
+      warn-dirty = false; # remove git warnings
+    };
+  };
+  environment.systemPackages = with pkgs; [ vim wget git ];
+
   #fonts
   fonts.fonts = with pkgs; [
     font-awesome
@@ -24,6 +34,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Define your hostname
   networking.hostName = "nixos";
@@ -65,7 +76,10 @@
   services.locate.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  sound = {
+    enable = true;
+    mediaKeys.enable = true;
+  };
   hardware.pulseaudio = {
     enable = false;
     extraModules = [ pkgs.pulseaudio-modules-bt ];
@@ -102,18 +116,6 @@
     wlr.enable = true;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  environment.systemPackages = with pkgs; [
-    # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    vim
-    wget
-    git
-    gh
-
-  ];
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -143,16 +145,16 @@
     enable = true;
     package = pkgs.fwupd;
   };
-  
-# Solve AT-SPI error
+
+  # Solve AT-SPI error
   services.gnome.at-spi2-core.enable = true;
 
-# This is needed for FortinetSSL VPN 
+  # This is needed for FortinetSSL VPN 
   environment.etc."ppp/options".text = "ipcp-accept-remote";
 
-# Custom DNS
-networking.resolvconf.enable = false;
-networking.nameservers = ["8.8.8.8" "1.1.1.1"];
+  # Custom DNS
+  networking.resolvconf.enable = false;
+  networking.nameservers = [ "8.8.8.8" "1.1.1.1" ];
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   #For Chromecast from chrome
