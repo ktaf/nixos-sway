@@ -32,7 +32,6 @@
       jellyfin-ffmpeg # multimedia libs
       viewnior # image viewr
       pavucontrol # Volume control
-      xfce.thunar # filemanager
       font-awesome
       gnome-text-editor
       gnome.file-roller
@@ -60,7 +59,6 @@
       bluez
       blueman
       htop
-      intel-media-driver
       jetbrains-mono
       libva
       linuxHeaders
@@ -96,11 +94,6 @@
       libnotify
       poweralertd
       dbus
-      ####photoshop dencies####
-      gnome.zenity
-      wine64Packages.waylandFull
-      curl
-      #########################
     ];
   };
 
@@ -110,13 +103,16 @@
     platformTheme = "qt5ct";
   };
 
-  #thunar dencies
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-    thunar-volman
-    thunar-dropbox-plugin
-    thunar-media-tags-plugin
-  ];
+  #thunar
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+      thunar-dropbox-plugin
+      thunar-media-tags-plugin
+    ];
+  };
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
