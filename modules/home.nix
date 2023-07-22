@@ -24,6 +24,7 @@
     anydesk
     bat
     bitwarden
+    curl
     dig
     fluxcd
     flutter
@@ -51,7 +52,6 @@
     tree
     vscode
     zoom
-
   ];
 
   home.sessionVariables = {
@@ -75,7 +75,7 @@
     WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
     WLR_NO_HARDWARE_CURSORS = "1"; # if no cursor,uncomment this line
     WLR_RENDERER_ALLOW_SOFTWARE = "1";
-    # GBM_BACKEND = "nvidia-drm";
+    GBM_BACKEND = "nvidia-drm";
     CLUTTER_BACKEND = "wayland";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     LIBVA_DRIVER_NAME = "nvidia";

@@ -1,7 +1,7 @@
 { config, pkgs, lib, inputs, user, ... }: {
 
   services.xserver = {
-    videoDrivers = [ "modesetting" "nouveau" ];
+    videoDrivers = [ "modesetting" "nvidia" ];
 
     config = ''
       Section "Device"
@@ -29,11 +29,19 @@
     '';
   };
 
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
-  hardware.nvidia.nvidiaSettings = true;
-  hardware.nvidia.powerManagement.enable = true;
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [ intel-media-driver intel-compute-runtime ];
+    };
+
+    nvidia = {
+      nvidiaSettings = true;
+      powerManagement.enable = true;
+    };
+  };
   #hardware.nvidia.forceFullCompositionPipeline = true;
 
   # Cuda
