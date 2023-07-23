@@ -18,7 +18,13 @@
       warn-dirty = false; # remove git warnings
     };
   };
-  environment.systemPackages = with pkgs; [ vim wget git ];
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    git
+    # Added to contorl acpi events, keep versin same as kernel #in_triage
+    linuxKernel.packages.linux_latest_libre.acpi_call
+  ];
 
   #fonts
   fonts.fonts = with pkgs; [
