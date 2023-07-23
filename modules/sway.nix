@@ -42,6 +42,7 @@ let
 in {
   environment.systemPackages = with pkgs; [
     alacritty # gpu accelerated terminal
+    autotiling
     dbus-sway-environment
     configure-gtk
     wayland

@@ -5,20 +5,6 @@ exec mako
 exec nm-applet --indicator 
 exec blueman-applet
 
-# Auto set monitor properties
-exec_always pkill kanshi; exec kanshi
-
-# Autotiling based on window dimensions
-exec autotiling &
-
-# start initial programs
-exec google-chrome-stable --profile-directory=Default
-exec slack &
-exec bitwarden &
-
-# Fix Chrome PIP
-for_window [title="Picture in picture"] floating enable
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -56,6 +42,9 @@ output * bg ~/extras/wallpapers/background.jpg fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
+# Auto set monitor properties
+exec_always pkill kanshi; exec kanshi
+
 ### Idle configuratio
 #
 # Example configuration:
@@ -86,8 +75,9 @@ input * xkb_numlock enable
 input * xkb_layout "us,ir"
 input * xkb_options "grp:alt_shift_toggle"
 
-### Key bindings# Autofocus on hover, also when switching workspaces
-        focus_follows_mouse always
+### Key bindings
+#
+# Basics:
 #
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -223,27 +213,19 @@ mode "resize" {
 }
 bindsym $mod+Shift+r mode "resize"
 
-# Screenshot / share shortcuts
-bindsym Print exec "grim save active /home/$USER/screenshots/Screenshot-$(date -Iseconds | cut -d'+' -f1).png"
-bindsym $mod+Print exec "grimshot save area /home/$USER/screenshots/Screenshot-$(date -Iseconds | cut -d'+' -f1).png"
-bindsym $mod+Shift+Print exec "wf-recorder -a -o eDP-1 -f /home/$USER/screenshots/Screenstream-$(date -Iseconds | cut -d'+' -f1).mp4"
 #
-# Window Rules
+# Status Bar:
 #
-
-for_window [app_id="blueman-manager"] floating enable, resize set width 680 height 400, \
-    move position center
-for_window [app_id="pavucontrol"] floating enable, resize set width 680 height 400, \
-    move position center
-for_window [app_id="nm-connection-editor"] floating enable, move position center
-for_window [title="Calculator"] floating enable, move center
-for_window [class="^.*"] inhibit_idle fullscreen
-for_window [app_id="^.*"] inhibit_idle fullscreen
-
-
-# Finally start waybar
+# Read `man 5 sway-bar` for more information about this section.
 bar {
+    position top
+    separator_symbol |
     swaybar_command waybar
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
     }
+}
 
 include /etc/sway/config.d/*

@@ -203,14 +203,11 @@ window#waybar.hidden {
 }
 
 #custom-power-menu {
-  color: #cc393c;
+  color: #00ff0d;
   margin-right: 4px;
   border-radius: 8px;
   margin-top: 2px;
   margin-bottom: 2px;
-  border: 1px solid rgba(255, 255, 255, .1);
-  box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
-  background: transparent;
 }
 
 tooltip {
