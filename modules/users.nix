@@ -68,7 +68,9 @@
       nvidia-vaapi-driver
       libva-utils
       glxinfo
+      go
       openssl
+      unzip
       polkit_gnome
       xdg-desktop-portal-wlr
       xdg-desktop-portal

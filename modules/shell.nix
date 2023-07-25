@@ -6,34 +6,9 @@
   # Enable ZSH and oh-my-zsh
   programs.zsh = {
     enable = true;
-    shellAliases = {
-      ll = "ls -la";
-      cat = "bat";
-      k = "kubectl";
-      kx = "kubectx";
-      tf = "terraform";
-      ssh = "TERM=xterm-256color ssh";
-      rebase = "'git checkout master && git pull && git checkout - && git rebase master'";
-      switch = "sudo nixos-rebuild switch --flake .#${user}";
-      switchu = "sudo nixos-rebuild switch --upgrade --flake .#${user}";
-      clean = "sudo nix-collect-garbage -d";
-      cleanold = "sudo nix-collect-garbage --delete-old";
-      cleanboot = "sudo /run/current-system/bin/switch-to-configuration boot";
-    };
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "history"
-        "jsontools"
-        "docker"
-        "kubectl"
-        "helm"
-        "terraform"
-      ];
-      theme = "agnoster"; # "dpoggi"
-    };
-    syntaxHighlighting = { enable = true; };
-    autosuggestions = { enable = true; };
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
     setOptions = [
       "correct"
       "nocaseglob" # Case insensitive globbing
@@ -47,5 +22,25 @@
       "inc_append_history" # save commands are added to the history immediately, otherwise only when shell exits.
       "histignorespace"
     ];
+    shellAliases = {
+      ll = "ls -la";
+      cat = "bat";
+      k = "kubectl";
+      kx = "kubectx";
+      tf = "terraform";
+      ssh = "TERM=xterm-256color ssh";
+      rebase =
+        "'git checkout master && git pull && git checkout - && git rebase master'";
+      switch = "sudo nixos-rebuild switch --flake .#${user}";
+      switchu = "sudo nixos-rebuild switch --upgrade --flake .#${user}";
+      clean = "sudo nix-collect-garbage -d";
+      cleanold = "sudo nix-collect-garbage --delete-old";
+      cleanboot = "sudo /run/current-system/bin/switch-to-configuration boot";
+    };
+    ohMyZsh = {
+      enable = true;
+      plugins = [ "history" "jsontools" "docker" "kubectl" "helm" "terraform" ];
+      theme = "agnoster"; # "dpoggi"
+    };
   };
 }

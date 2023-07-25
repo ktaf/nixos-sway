@@ -5,19 +5,17 @@ exec mako
 exec nm-applet --indicator 
 exec blueman-applet
 
-# Auto set monitor properties
-exec_always pkill kanshi; exec kanshi
-
 # Autotiling based on window dimensions
 exec autotiling &
 
-# start initial programs
-exec google-chrome-stable --profile-directory=Default
-exec slack &
-exec bitwarden &
+# Auto set monitor properties
+exec_always pkill kanshi; exec kanshi
 
-# Fix Chrome PIP
-for_window [title="Picture in picture"] floating enable
+# start initial programs
+exec --no-startup-id swaymsg 'workspace 2; exec google-chrome-stable --profile-directory=Default'
+exec --no-startup-id swaymsg 'workspace 4; exec google-chrome-stable --profile-directory="Profile 1"'
+exec slack &
+assign [class="Slack"] 2
 
 ### Variables
 #
@@ -40,6 +38,7 @@ gaps outer 2
 
 # Hide gaps when there is only 1 window
 smart_gaps on
+
 
 default_border pixel 2 # disable window titlebar
 
@@ -231,15 +230,28 @@ bindsym $mod+Shift+Print exec "wf-recorder -a -o eDP-1 -f /home/$USER/screenshot
 # Window Rules
 #
 
+for_window [title="Picture in picture"] floating enable # Fix Chrome PIP
 for_window [app_id="blueman-manager"] floating enable, resize set width 680 height 400, \
     move position center
 for_window [app_id="pavucontrol"] floating enable, resize set width 680 height 400, \
     move position center
 for_window [app_id="nm-connection-editor"] floating enable, move position center
 for_window [title="Calculator"] floating enable, move center
+for_window [class="Slack"] move position right, resize set width 735 height 1036
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
 
+
+# define display output names
+set $display1 "eDP-1"
+set $display2 "DP-4"
+set $display3 "DP-5"
+
+# default display outputs for workspaces with fallback to display1
+workspace 1 output $display1
+workspace 2 output $display2 $display1
+workspace 3 output $display3 $display1
+workspace 4 output $display3 $display1
 
 # Finally start waybar
 bar {

@@ -106,7 +106,7 @@
   #Gtk 
   gtk = {
     enable = true;
-    font.name = "IntelOne Mono 10";
+    font.name = "Hack Nerd 10";
     theme = {
       name = "Nordic";
       package = pkgs.nordic;

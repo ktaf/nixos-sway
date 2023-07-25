@@ -146,7 +146,7 @@
   },
   "custom/vpn":{
     "format":"VPN",
-    "on-click":"alacritty -e sudo openfortivpn --no-dns"
+    "on-click":"swaymsg 'workspace 9; exec alacritty -e sudo openfortivpn --no-dns'"
   },
   "custom/power-menu":{
     "format":" ⏻ ",
