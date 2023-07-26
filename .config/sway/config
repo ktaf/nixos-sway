@@ -8,9 +8,6 @@ exec blueman-applet
 # Autotiling based on window dimensions
 exec autotiling &
 
-# Auto set monitor properties
-exec_always pkill kanshi; exec kanshi
-
 # start initial programs
 exec swaymsg 'workspace 2; exec google-chrome-stable --profile-directory=Default'
 exec swaymsg 'workspace 4; exec google-chrome-stable --profile-directory="Profile 1"'
@@ -269,6 +266,9 @@ workspace 1 output $display1
 workspace 2 output $display2 $display1
 workspace 3 output $display3 $display1
 workspace 4 output $display3 $display1
+
+# Auto set monitor properties
+exec_always pkill kanshi; exec kanshi
 
 # Finally start waybar
 bar {
