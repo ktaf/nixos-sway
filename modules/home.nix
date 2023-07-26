@@ -39,6 +39,9 @@
     libdigidocpp
     libudfread
     microsoft-edge
+    neofetch
+    nixops_unstable
+    nix-zsh-completions
     obsidian
     opencryptoki
     openfortivpn

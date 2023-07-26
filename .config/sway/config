@@ -73,6 +73,7 @@ exec swayidle -w \
     timeout 300 $lock \
     timeout 600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
+    before-sleep 'playerctl pause' \
     before-sleep $lock
 # set $lockman exec bash ~/.config/sway/lockman.sh
 bindsym $mod+l exec $lock
@@ -160,6 +161,19 @@ input * xkb_options "grp:alt_shift_toggle"
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    # Special keys on your keyboard can be used to execute commands, for example to control volume, monitor brightness or media players:
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+    bindsym XF86Search exec $menu
+
 #
 # Layout stuff:
 #
