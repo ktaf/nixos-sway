@@ -29,6 +29,7 @@
     fluxcd
     flutter
     fwupd
+    fzf
     grive2
     jq
     kind
@@ -47,12 +48,13 @@
     openfortivpn
     qdigidoc
     remmina
+    ripgrep
     slack
     terraform
     tdesktop
     tfautomv
     trousers
-    tree
+    exa
     vscode
     zoom
   ];
