@@ -30,6 +30,7 @@
     flutter
     fwupd
     fzf
+    gnome.gnome-keyring
     grive2
     jq
     kind
