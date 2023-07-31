@@ -8,6 +8,7 @@
     ./modules/gaming.nix
     ./modules/sway.nix
     ./modules/vm.nix
+    # ./modules/symlinks.nix
   ];
 
   nix = {
