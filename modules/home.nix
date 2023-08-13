@@ -22,6 +22,7 @@
     android-studio
     android-tools
     anydesk
+    awscli2
     bat
     bitwarden
     curl
@@ -50,6 +51,7 @@
     qdigidoc
     remmina
     ripgrep
+    s3cmd
     slack
     terraform
     tdesktop
