@@ -11,10 +11,12 @@ exec autotiling &
 # start initial programs
 exec swaymsg 'workspace 2; exec google-chrome-stable --profile-directory=Default'
 exec swaymsg 'workspace 4; exec google-chrome-stable --profile-directory="Profile 1"'
+exec alacritty
+assign [app_id="Alacritty"] 3
+exec slack &
+assign [class="Slack"] 3
 exec telegram-desktop &
 assign [app_id="org.telegram.desktop"] 4
-exec slack &
-assign [class="Slack"] 2
 
 ### Variables
 #
