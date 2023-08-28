@@ -25,6 +25,7 @@
     awscli2
     bat
     bitwarden
+    chiaki
     curl
     dig
     fluxcd
@@ -33,6 +34,7 @@
     fzf
     gnome.gnome-keyring
     grive2
+    imv
     jq
     kind
     krew
@@ -45,6 +47,7 @@
     neofetch
     nixops_unstable
     nix-zsh-completions
+    nmap
     obsidian
     opencryptoki
     openfortivpn
