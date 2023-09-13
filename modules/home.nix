@@ -12,7 +12,7 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = (_: true);
+      # allowUnfreePredicate = (_: true);
     };
   };
 
@@ -28,11 +28,15 @@
     chiaki
     curl
     dig
+    dmidecode
+    elinks
+    eza
     fluxcd
     flutter
     fwupd
     fzf
     gnome.gnome-keyring
+    google-cloud-sdk
     grive2
     imv
     jq
@@ -45,7 +49,6 @@
     libudfread
     microsoft-edge
     neofetch
-    nixops_unstable
     nix-zsh-completions
     nmap
     obsidian
@@ -60,7 +63,7 @@
     tdesktop
     tfautomv
     trousers
-    exa
+    usbutils
     vscode
     zoom
   ];

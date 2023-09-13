@@ -73,7 +73,7 @@
       unzip
       polkit_gnome
       python3Full
-      python310Packages.pip
+      python311Packages.pip
       xdg-desktop-portal-wlr
       xdg-desktop-portal
       xdg-desktop-portal-gtk

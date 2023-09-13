@@ -23,8 +23,8 @@
     vim
     wget
     git
-    # Added to contorl acpi events, keep versin same as kernel #in_triage
-    linuxKernel.packages.linux_latest_libre.acpi_call
+    # # Added to contorl acpi events, keep version same as kernel #in_triage
+    linuxKernel.packages.linux_6_1.acpi_call
   ];
 
   #fonts
@@ -41,7 +41,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_1; # pkgs.linuxPackages_latest
 
   # Define your hostname
   networking.hostName = "nixos";

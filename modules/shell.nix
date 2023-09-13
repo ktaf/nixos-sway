@@ -23,9 +23,9 @@
       "histignorespace"
     ];
     shellAliases = {
-      ls = "exa";
-      ll = "exa -lha";
-      tree = "exa --tree";
+      ls = "eza";
+      ll = "eza -lha";
+      tree = "eza --tree";
       cat = "bat";
       k = "kubectl";
       kx = "kubectx";
