@@ -4,7 +4,7 @@
 #   ./pci-passthrough.nix
 # to /etc/nixos/configuration.nix in `imports`
 
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   # oCHANGE: intel_iommu enables iommu for intel CPUs with VT-d
   # use amd_iommu if you have an AMD CPU with AMD-Vi
   boot.kernelParams = [ "intel_iommu=on" ];

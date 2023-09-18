@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ lib, ... }:
 with lib;
 let
   # GTX 1070M
@@ -6,7 +6,7 @@ let
     "10de:1ba1" # Graphics
     "10de:10f0" # Audio
   ];
-in { pkgs, lib, config, ... }: {
+in { lib, config, ... }: {
   options.vfio.enable = with lib;
     mkEnableOption "Configure the machine for VFIO";
 

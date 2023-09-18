@@ -1,4 +1,4 @@
-{ config, pkgs, self, inputs, lib, user, ... }:
+{ config, pkgs, user, ... }:
 
 {
   home.username = "${user}";
@@ -63,7 +63,6 @@
     tdesktop
     tfautomv
     trousers
-    usbutils
     vscode
     zoom
   ];

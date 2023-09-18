@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, user, modulesPath, ... }: {
+{ config, pkgs, ... }: {
   # Include the results of the hardware scan.
   imports = [
     ./hardware-configuration.nix
@@ -24,7 +24,7 @@
     wget
     git
     # # Added to contorl acpi events, keep version same as kernel #in_triage
-    linuxKernel.packages.linux_6_1.acpi_call
+    linuxKernel.packages.linux_6_5.acpi_call
   ];
 
   #fonts
@@ -41,7 +41,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.kernelPackages = pkgs.linuxPackages_6_1; # pkgs.linuxPackages_latest
+  boot.kernelPackages = pkgs.linuxPackages_6_5; # pkgs.linuxPackages_latest
 
   # Define your hostname
   networking.hostName = "nixos";

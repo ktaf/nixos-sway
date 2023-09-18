@@ -1,4 +1,4 @@
-{ config, pkgs, self, inputs, lib, user, ... }: {
+{ ... }: {
   nix.settings = {
     substituters = [ "https://nix-gaming.cachix.org" ];
     trusted-public-keys = [
