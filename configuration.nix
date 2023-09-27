@@ -43,28 +43,12 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.kernelPackages = pkgs.linuxPackages_6_5; # pkgs.linuxPackages_latest
 
-  # Define your hostname
-  networking.hostName = "nixos";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
   # Set your time zone.
   time.timeZone = "Europe/Tallinn";
+  location.provider = "geoclue2";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   # Enable the X11 windowing system.
   services.xserver = {
@@ -138,8 +122,21 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
+  services.thermald.enable = true;
+
   #tlp
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      PCIE_ASPM_ON_BAT = "powersupersave";
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_MAX_PERF_ON_AC = "100";
+      CPU_MAX_PERF_ON_BAT = "60";
+      STOP_CHARGE_THRESH_BAT1 = "95";
+      STOP_CHARGE_THRESH_BAT0 = "95";
+    };
+  };
 
   #auto-cpufreq
   services.auto-cpufreq.enable = true;
@@ -159,20 +156,29 @@
   # This is needed for FortinetSSL VPN 
   environment.etc."ppp/options".text = "ipcp-accept-remote";
 
-  # Custom DNS
-  networking.resolvconf.enable = false;
-  networking.nameservers = [ "8.8.8.8" "1.1.1.1" ];
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  #For Chromecast from chrome
-  #    networking.firewall.allowedUDPPortRanges = [ { from = 32768; to = 60999; } ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
-  # networking.firewall = {
-  #   allowedUDPPorts = [ 51820 ];
-  # };
-  # system.autoUpgrade.enable = true;  
-  # system.autoUpgrade.allowReboot = true; 
-  system.autoUpgrade.channel = "https://channels.nixos.org/nixos-23.05";
-  system.stateVersion = "23.05"; # Did you read the comment?
+  networking = {
+    networkmanager.enable = true;
+
+    hostName = "xps9510";
+
+    useDHCP = false;
+    interfaces = {
+      "enp0s13f0u4u4".useDHCP = true;
+      "wlp0s20f3".useDHCP = true;
+    };
+
+    # Custom DNS
+    resolvconf.enable = false;
+    nameservers = [ "8.8.8.8" "1.1.1.1" ];
+
+    firewall = {
+      enable = false;
+      ##Open ports in the firewall.
+      # allowedTCPPorts = [ ... ];
+      ##For Chromecast from chrome
+      # allowedUDPPortRanges = [ { from = 32768; to = 60999; } ];
+      # allowedUDPPorts = [ 51820 ];
+    };
+  };
+  system.stateVersion = "23.11"; # Did you read the comment?
 }

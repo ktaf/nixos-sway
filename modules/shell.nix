@@ -41,7 +41,7 @@
     };
     ohMyZsh = {
       enable = true;
-      plugins = [ "history" "jsontools" "docker" "kubectl" "helm" "terraform" ];
+      plugins = [ "history" ];
       theme = "agnoster"; # "dpoggi"
     };
   };

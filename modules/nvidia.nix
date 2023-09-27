@@ -39,7 +39,7 @@
 
     nvidia = {
       nvidiaSettings = true;
-      powerManagement.enable = true;
+      powerManagement.enable = false;
     };
   };
   #hardware.nvidia.forceFullCompositionPipeline = true;
