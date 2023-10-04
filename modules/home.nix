@@ -3,7 +3,7 @@
 {
   home.username = "${user}";
   home.homeDirectory = "/home/${user}";
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 
   systemd.user = {
     targets.sway-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];

@@ -64,7 +64,7 @@
   #Flatpak
   services.flatpak.enable = true;
   #locate
-  services.locate.enable = true;
+  # services.locate.enable = true;
 
   # Enable sound with pipewire.
   sound = {
@@ -174,5 +174,5 @@
       # allowedUDPPorts = [ 51820 ];
     };
   };
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 }
