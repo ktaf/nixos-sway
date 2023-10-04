@@ -3,7 +3,7 @@
 {
   home.username = "${user}";
   home.homeDirectory = "/home/${user}";
-  home.stateVersion = "23.11";
+  home.stateVersion = "23.05";
 
   systemd.user = {
     targets.sway-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
@@ -54,6 +54,7 @@
     obsidian
     opencryptoki
     openfortivpn
+    pciutils
     qdigidoc
     remmina
     ripgrep

@@ -161,15 +161,9 @@
 
     hostName = "xps9510";
 
-    useDHCP = false;
-    interfaces = {
-      "enp0s13f0u4u4".useDHCP = true;
-      "wlp0s20f3".useDHCP = true;
-    };
-
     # Custom DNS
     resolvconf.enable = false;
-    nameservers = [ "8.8.8.8" "1.1.1.1" ];
+    nameservers = [ "192.168.1.8" "8.8.8.8" "1.1.1.1" ];
 
     firewall = {
       enable = false;
@@ -180,5 +174,5 @@
       # allowedUDPPorts = [ 51820 ];
     };
   };
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 }

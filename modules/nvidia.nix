@@ -45,7 +45,7 @@
   #hardware.nvidia.forceFullCompositionPipeline = true;
 
   # Cuda
-  services.xmr-stak.cudaSupport = true;
+  # services.xmr-stak.cudaSupport = true; #Not supported after 23.05 anymore!
   # Optionally, you may need to select the appropriate driver version for your specific GPU.
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
