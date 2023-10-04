@@ -11,14 +11,13 @@
     syntaxHighlighting.enable = true;
     setOptions = [
       "correct"
-      "nocaseglob" # Case insensitive globbing
+      # "nocaseglob" # Case insensitive globbing
       "rcexpandparam" # Array expension with parameters
       "nocheckjobs" # Don't warn about running processes when exiting
       "numericglobsort" # Sort filenames numerically when it makes sense
       "nobeep" # No beep
       "appendhistory" # Immediately append history instead of overwriting
       "histignorealldups" # If a new command is a duplicate, remove the older one
-      "autocd" # if only directory path is entered, cd there.
       "inc_append_history" # save commands are added to the history immediately, otherwise only when shell exits.
       "histignorespace"
     ];
