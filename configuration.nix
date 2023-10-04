@@ -23,16 +23,20 @@
     vim
     wget
     git
-    # # Added to contorl acpi events, keep version same as kernel #in_triage
+    # # Added to contorl acpi events, keep version same as kernel
     linuxKernel.packages.linux_6_5.acpi_call
   ];
 
   #fonts
   fonts.packages = with pkgs; [
     font-awesome
-    (nerdfonts.override {
-      fonts = [ "IBMPlexMono" "Hack" "FiraCode" "JetBrainsMono" ];
-    })
+    nerdfonts
+    ibm-plex
+    hack-font
+    fira-code
+    fira-code-nerdfont
+    fira-code-symbols
+    jetbrains-mono
   ];
   #emojis
   services.gollum.emoji = true;
