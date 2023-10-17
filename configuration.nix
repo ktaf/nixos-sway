@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
     ./modules/shell.nix
     ./modules/users.nix
-    ./modules/nvidia.nix
+    # ./modules/nvidia.nix
     ./modules/gaming.nix
     ./modules/sway.nix
     ./modules/vm.nix

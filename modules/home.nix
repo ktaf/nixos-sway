@@ -19,13 +19,12 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
-    android-studio
-    android-tools
+    # android-studio
+    # android-tools
     anydesk
     awscli2
     bat
     bitwarden
-    chiaki
     curl
     dig
     dmidecode
@@ -55,6 +54,7 @@
     opencryptoki
     openfortivpn
     pciutils
+    qbittorrent
     qdigidoc
     remmina
     ripgrep

@@ -3,12 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, nixos-hardware, ... }:
     let
       user = "kourosh";
       system = "x86_64-linux";
@@ -21,6 +22,8 @@
           modules = [
             ./configuration.nix
             ./hardware-configuration.nix
+            nixos-hardware.nixosModules.dell-xps-15-9510
+            nixos-hardware.nixosModules.dell-xps-15-9510-nvidia
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
