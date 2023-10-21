@@ -24,6 +24,7 @@
             ./hardware-configuration.nix
             nixos-hardware.nixosModules.dell-xps-15-9510
             nixos-hardware.nixosModules.dell-xps-15-9510-nvidia
+            nixos-hardware.nixosModules.common-pc-laptop-acpi_call
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

@@ -23,8 +23,6 @@
     vim
     wget
     git
-    # # Added to contorl acpi events, keep version same as kernel
-    linuxKernel.packages.linux_6_5.acpi_call
   ];
 
   #fonts
