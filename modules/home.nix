@@ -30,6 +30,7 @@
     dmidecode
     elinks
     eza
+    ffmpeg
     fluxcd
     flutter
     fwupd
@@ -53,6 +54,7 @@
     obsidian
     opencryptoki
     openfortivpn
+    openh264
     pciutils
     qbittorrent
     qdigidoc
