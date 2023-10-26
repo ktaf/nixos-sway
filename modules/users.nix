@@ -62,15 +62,15 @@
       jetbrains-mono
       libva
       linuxHeaders
+      lshw
       lxappearance
       networkmanagerapplet
       noto-fonts-emoji
-      nvidia-vaapi-driver
-      libva-utils
       glxinfo
       go
       openssl
       unzip
+      usbutils
       polkit_gnome
       python3Full
       python311Packages.pip
@@ -87,11 +87,11 @@
       nordic
       gnome.gnome-themes-extra
       papirus-icon-theme
-      gtk3
+      # gtk3
+      gtk4
       glib # gsettings
       xcur2png
       rubyPackages.glib2
-      libcanberra-gtk3 # notification sound
       #########System#########
       google-chrome
       firefox
@@ -140,14 +140,14 @@
   };
 
   # User etc/
-  environment.etc."xdg/user-dirs.defaults".text = ''
-    DESKTOP=System/Desktop
-    DOWNLOAD=System/Downloads
-    TEMPLATES=System/Templates
-    PUBLICSHARE=System/Public
-    DOCUMENTS=System/Documents
-    MUSIC=Media/music
-    PICTURES=Media/photos
-    VIDEOS=Media/video 
-  '';
+  # environment.etc."xdg/user-dirs.defaults".text = ''
+  #   DESKTOP=System/Desktop
+  #   DOWNLOAD=System/Downloads
+  #   TEMPLATES=System/Templates
+  #   PUBLICSHARE=System/Public
+  #   DOCUMENTS=System/Documents
+  #   MUSIC=Media/music
+  #   PICTURES=Media/photos
+  #   VIDEOS=Media/video 
+  # '';
 }

@@ -3,44 +3,39 @@
   services.xserver = {
     videoDrivers = [ "modesetting" "nvidia" ];
 
-  #   config = ''
-  #     Section "Device"
-  #         Identifier  "Intel Graphics"
-  #         Driver      "intel"
-  #         #Option      "AccelMethod"  "sna" # default
-  #         #Option      "AccelMethod"  "uxa" # fallback
-  #         Option      "TearFree"        "true"
-  #         Option      "SwapbuffersWait" "true"
-  #         BusID       "PCI:0:2:0"
-  #         #Option      "DRI" "2"             # DRI3 is now default
-  #     EndSection
+    #   config = ''
+    #     Section "Device"
+    #         Identifier  "Intel Graphics"
+    #         Driver      "intel"
+    #         #Option      "AccelMethod"  "sna" # default
+    #         #Option      "AccelMethod"  "uxa" # fallback
+    #         Option      "TearFree"        "true"
+    #         Option      "SwapbuffersWait" "true"
+    #         BusID       "PCI:0:2:0"
+    #         #Option      "DRI" "2"             # DRI3 is now default
+    #     EndSection
 
-  #     Section "Device"
-  #         Identifier "nvidia"
-  #         Driver "nvidia"
-  #         BusID "PCI:1:0:0"
-  #         Option "AllowEmptyInitialConfiguration"
-  #     EndSection
-  #   '';
-  #   screenSection = ''
-  #     Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
-  #     Option         "AllowIndirectGLXProtocol" "off"
-  #     Option         "TripleBuffer" "on"
-  #   '';
+    #     Section "Device"
+    #         Identifier "nvidia"
+    #         Driver "nvidia"
+    #         BusID "PCI:1:0:0"
+    #         Option "AllowEmptyInitialConfiguration"
+    #     EndSection
+    #   '';
+    #   screenSection = ''
+    #     Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+    #     Option         "AllowIndirectGLXProtocol" "off"
+    #     Option         "TripleBuffer" "on"
+    #   '';
   };
 
   hardware = {
     opengl = {
       enable = true;
-      driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [ intel-media-driver intel-compute-runtime ];
     };
 
-    nvidia = {
-      nvidiaSettings = true;
-      powerManagement.enable = false;
-    };
   };
   #hardware.nvidia.forceFullCompositionPipeline = true;
 
