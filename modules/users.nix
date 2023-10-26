@@ -87,7 +87,7 @@
       nordic
       gnome.gnome-themes-extra
       papirus-icon-theme
-      # gtk3
+      # gtk4
       gtk4
       glib # gsettings
       xcur2png
@@ -138,16 +138,4 @@
     xkbVariant = "latitude";
     xkbOptions = "grp:alt_shift_toggle";
   };
-
-  # User etc/
-  # environment.etc."xdg/user-dirs.defaults".text = ''
-  #   DESKTOP=System/Desktop
-  #   DOWNLOAD=System/Downloads
-  #   TEMPLATES=System/Templates
-  #   PUBLICSHARE=System/Public
-  #   DOCUMENTS=System/Documents
-  #   MUSIC=Media/music
-  #   PICTURES=Media/photos
-  #   VIDEOS=Media/video 
-  # '';
 }
