@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.url = "github:ktaf/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +24,6 @@
             ./hardware-configuration.nix
             nixos-hardware.nixosModules.dell-xps-15-9510
             nixos-hardware.nixosModules.dell-xps-15-9510-nvidia
-            nixos-hardware.nixosModules.common-pc-laptop-acpi_call
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
