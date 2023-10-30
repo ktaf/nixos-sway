@@ -24,6 +24,9 @@
     ];
     packages = with pkgs; [
       auto-cpufreq
+      cinnamon.nemo-with-extensions
+      nemo-qml-plugin-dbus
+      cinnamon.nemo-python
       waybar # topbar
       kanshi # laptop dncies
       rofi
@@ -107,16 +110,6 @@
     platformTheme = "qt5ct";
   };
 
-  #thunar
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-      thunar-dropbox-plugin
-      thunar-media-tags-plugin
-    ];
-  };
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
