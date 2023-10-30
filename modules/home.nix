@@ -55,18 +55,21 @@
     opencryptoki
     openfortivpn
     openh264
+    openra
     pciutils
     qbittorrent
     qdigidoc
     remmina
     ripgrep
     s3cmd
+    samba4Full
     slack
     terraform
     tdesktop
     tfautomv
     trousers
     vscode
+    wsdd
     zoom
   ];
 
