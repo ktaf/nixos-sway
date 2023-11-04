@@ -16,6 +16,10 @@ assign [class="Slack"] 3
 exec telegram-desktop &
 assign [app_id="org.telegram.desktop"] 4
 
+set $laptop eDP-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.

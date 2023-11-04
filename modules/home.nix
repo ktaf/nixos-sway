@@ -51,6 +51,7 @@
       kubernetes-helm
       libdigidocpp
       libudfread
+      libinput
       microsoft-edge
       neofetch
       nix-zsh-completions
@@ -86,7 +87,7 @@
       # QT_IM_MODULE = "fcitx5";
       # XMODIFIERS = "@im=fcitx5";
       NIXOS_OZONE_WL = "1";
-      QT_QPA_PLATFORMTHEME = "gtk3";
+      QT_QPA_PLATFORMTHEME = "wayland-egl";
       QT_SCALE_FACTOR = "1";
       MOZ_ENABLE_WAYLAND = "1";
       MOZ_USE_XINPUT2 = "1";
@@ -94,6 +95,7 @@
       SDL_VIDEODRIVER = "wayland";
       XDG_SESSION_TYPE = "wayland";
       _JAVA_AWT_WM_NONREPARENTING = "1";
+      QT_WAYLAND_FORCE_DPI = "physical";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";

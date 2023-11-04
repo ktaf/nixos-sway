@@ -30,7 +30,7 @@
       waybar # topbar
       kanshi # laptop dncies
       rofi
-      mako
+      mako # notification system developed by swaywm maintainer
       rofimoji # Drawer + notifications
       jellyfin-ffmpeg # multimedia libs
       viewnior # image viewr
@@ -81,20 +81,6 @@
       xdg-desktop-portal
       xdg-desktop-portal-gtk
       electron
-      xdg-utils # for opening default programs when clicking links
-      grim # screenshot functionality
-      slurp # screenshot functionality
-      wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-      wdisplays # tool to configure displays
-      ####GTK Customization####
-      nordic
-      gnome.gnome-themes-extra
-      papirus-icon-theme
-      # gtk4
-      gtk4
-      glib # gsettings
-      xcur2png
-      rubyPackages.glib2
       #########System#########
       google-chrome
       firefox
