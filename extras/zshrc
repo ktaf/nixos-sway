@@ -1,21 +1,55 @@
+# gcolor="green"
+# autoload -Uz vcs_info
+# precmd (){ vcs_info }
+
+# prompt_git() {
+#   local ref
+#   RETVAL=$?
+#   is_dirty() {
+#     test -n "$(git status --porcelain --ignore-submodules)"
+#   }
+#   ref="$vcs_info_msg_0_"
+#   if [[ -n "$ref" ]]; then
+#     if is_dirty; then
+#       gcolor=yellow
+#       ref="${ref} $PLUSMINUS"
+#     else
+#       gcolor=green
+#       ref="${ref} "
+#     fi
+#     if [[ "${ref/.../}" == "$ref" ]]; then
+#       ref="$BRANCH $ref"
+#     else
+#       ref="$DETACHED ${ref/.../}"
+#     fi
+#     $gcolor
+#   fi
+# }
+# zstyle ':vcs_info:*' enable git
+# zstyle ':vcs_info:git*' formats '%b%m%u%c'
+# zstyle ':vcs_info:git*' actionformats '%b (%a)'
+# # zstyle ':vcs_info:git*' formats "%s  %r/%S %b (%a) %m%u%c "
+# setopt PROMPT_SUBST
+# PROMPT='%F{green}󱄅%f %F{blue}%~%f %F{$gcolor}${vcs_info_msg_0_}%f$ '
+
+
+
+
+
+##########################################
 # Use powerline
 USE_POWERLINE="true"
 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots) 
+# USER AREA
+#
 
-## USER AREA
-##
+# KUBE Editor
+export KUBE_EDITOR="code -w"
+
 export PATH=$PATH:$HOME/minio-binaries/
 
 alias rebase='git checkout master && git pull && git checkout - && git rebase master'
 
-# KUBE Editor
-export KUBE_EDITOR="code -w"
 autoload -U compinit; compinit
 
 export PATH="${PATH}:${HOME}/.krew/bin"
