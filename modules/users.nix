@@ -113,9 +113,6 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
-  #gnome outside gnome
-  programs.dconf.enable = true;
-
   #Steam
   programs.steam = {
     enable = true;

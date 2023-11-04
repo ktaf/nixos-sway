@@ -141,7 +141,10 @@
     # Enable touchpad support (enabled default in most desktopManager).
     xserver.libinput.enable = true;
 
-    dbus.enable = true;
+    dbus = {
+      enable = true;
+      packages = with pkgs; [ dconf ];
+    };
 
     #tlp
     tlp = {
