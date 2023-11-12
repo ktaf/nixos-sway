@@ -1,37 +1,28 @@
-# Load vcs_info for Git status
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats '%F{11}%b%F{10}%c%u%f'
-zstyle ':vcs_info:git:*' actionformats '%F{11}%b|%F{11}%a%F{10}%c%u%f'
-zstyle ':vcs_info:git:*' stagedstr '✚'
-zstyle ':vcs_info:git:*' unstagedstr '±'
-
-# Function to truncate long branch names
-function truncate_git_branch() {
-    if [[ -n "${vcs_info_msg_0_}" ]]; then
-        if (( ${#vcs_info_msg_0_} > 20 )); then
-            vcs_info_msg_0_="${vcs_info_msg_0_:0:17}..."
+# Function to get the Git branch name
+function git_branch() {
+    BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if [[ -n "${BRANCH_NAME}" ]]; then
+        if (( ${#BRANCH_NAME} > 20 )); then
+            BRANCH_NAME="${BRANCH_NAME:0:17}..."
+        fi
+        if [[ -n $(git status --porcelain) ]]; then
+            echo "%F{11}${BRANCH_NAME}±%f"
+        else
+            echo "%F{2}${BRANCH_NAME}%f"
         fi
     fi
 }
 
-# Update the precmd function to call vcs_info and truncate_git_branch
-precmd() { vcs_info; truncate_git_branch; }
+# Load vcs_info for Git status
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
 
-# Function to get Kubernetes info
-function kube_info {
-    [[ -n "${KUBECONFIG}" ]] || return
-    CONTEXT=$(kubectl config current-context 2>/dev/null)
-    if [[ -n "${CONTEXT}" ]]; then
-        NAMESPACE=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
-        echo "%{$fg[blue]%}(${CONTEXT}/${NAMESPACE})%{$reset_color%}"
-    fi
-}
+# Update the precmd function to call vcs_info, colorize_git_branch, and truncate_git_branch
+precmd() { vcs_info; }
 
 # Define the prompt
-PROMPT='%F{13}󱄅%f %F{12}%~%f${vcs_info_msg_0_} ☸$(kube_info) ➜ '
-
+PROMPT='%F{13}󱄅%f %F{12}%~%f$(git_branch) ➜ '
 
 
 ##########################################

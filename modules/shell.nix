@@ -38,11 +38,7 @@
       cleanold = "sudo nix-collect-garbage --delete-old";
       cleanboot = "sudo /run/current-system/bin/switch-to-configuration boot";
     };
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "history" ];
-      theme = "agnoster"; # "dpoggi"
-    };
+    ohMyZsh = { enable = true; };
   };
 
   environment.etc.zshrc.text = builtins.readFile ../extras/zshrc;
