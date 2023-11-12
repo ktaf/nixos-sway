@@ -8,7 +8,6 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      # allowUnfreePredicate = (_: true);
     };
   };
 
@@ -74,6 +73,7 @@
       tfautomv
       trousers
       vscode
+      winbox
       wsdd
       zoom
     ];

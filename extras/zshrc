@@ -1,38 +1,36 @@
-# gcolor="green"
-# autoload -Uz vcs_info
-# precmd (){ vcs_info }
+# Load vcs_info for Git status
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats '%F{11}%b%F{10}%c%u%f'
+zstyle ':vcs_info:git:*' actionformats '%F{11}%b|%F{11}%a%F{10}%c%u%f'
+zstyle ':vcs_info:git:*' stagedstr '✚'
+zstyle ':vcs_info:git:*' unstagedstr '±'
 
-# prompt_git() {
-#   local ref
-#   RETVAL=$?
-#   is_dirty() {
-#     test -n "$(git status --porcelain --ignore-submodules)"
-#   }
-#   ref="$vcs_info_msg_0_"
-#   if [[ -n "$ref" ]]; then
-#     if is_dirty; then
-#       gcolor=yellow
-#       ref="${ref} $PLUSMINUS"
-#     else
-#       gcolor=green
-#       ref="${ref} "
-#     fi
-#     if [[ "${ref/.../}" == "$ref" ]]; then
-#       ref="$BRANCH $ref"
-#     else
-#       ref="$DETACHED ${ref/.../}"
-#     fi
-#     $gcolor
-#   fi
-# }
-# zstyle ':vcs_info:*' enable git
-# zstyle ':vcs_info:git*' formats '%b%m%u%c'
-# zstyle ':vcs_info:git*' actionformats '%b (%a)'
-# # zstyle ':vcs_info:git*' formats "%s  %r/%S %b (%a) %m%u%c "
-# setopt PROMPT_SUBST
-# PROMPT='%F{green}󱄅%f %F{blue}%~%f %F{$gcolor}${vcs_info_msg_0_}%f$ '
+# Function to truncate long branch names
+function truncate_git_branch() {
+    if [[ -n "${vcs_info_msg_0_}" ]]; then
+        if (( ${#vcs_info_msg_0_} > 20 )); then
+            vcs_info_msg_0_="${vcs_info_msg_0_:0:17}..."
+        fi
+    fi
+}
 
+# Update the precmd function to call vcs_info and truncate_git_branch
+precmd() { vcs_info; truncate_git_branch; }
 
+# Function to get Kubernetes info
+function kube_info {
+    [[ -n "${KUBECONFIG}" ]] || return
+    CONTEXT=$(kubectl config current-context 2>/dev/null)
+    if [[ -n "${CONTEXT}" ]]; then
+        NAMESPACE=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+        echo "%{$fg[blue]%}(${CONTEXT}/${NAMESPACE})%{$reset_color%}"
+    fi
+}
+
+# Define the prompt
+PROMPT='%F{13}󱄅%f %F{12}%~%f${vcs_info_msg_0_} ☸$(kube_info) ➜ '
 
 
 
