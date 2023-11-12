@@ -5,11 +5,7 @@
     targets.sway-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
+  nixpkgs = { config = { allowUnfree = true; }; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

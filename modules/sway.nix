@@ -93,7 +93,7 @@ in {
     extraOptions = [ "--unsupported-gpu" ];
     extraPackages = with pkgs; [ light ];
   };
-    environment.etc.zprofile.text = ''
+  environment.etc.zprofile.text = ''
     # If running from tty1 start sway
     [ "$(tty)" = "/dev/tty1" ] && exec sway
   '';
