@@ -19,7 +19,6 @@
       # android-studio
       # android-tools
       anydesk
-      awscli2
       bat
       bitwarden
       cifs-utils
@@ -34,6 +33,7 @@
       flutter
       fwupd
       fzf
+      github-desktop
       gnome.gnome-keyring
       google-cloud-sdk
       grive2
@@ -52,6 +52,7 @@
       nix-zsh-completions
       nmap
       obsidian
+      ollama
       opencryptoki
       openfortivpn
       openh264
