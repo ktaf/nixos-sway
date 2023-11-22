@@ -20,7 +20,7 @@
     };
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "daily";
     };
   };
   environment.systemPackages = with pkgs; [
@@ -54,7 +54,7 @@
         efiSysMountPoint = "/boot/efi";
       };
     };
-    kernelPackages = pkgs.linuxPackages_6_5; # pkgs.linuxPackages_latest
+    kernelPackages = pkgs.linuxPackages_6_6; # pkgs.linuxPackages_latest
   };
 
   # Set your time zone.
@@ -89,7 +89,17 @@
       xdg-desktop-portal
       xdg-desktop-portal-gtk
     ];
-    wlr.enable = true;
+    wlr = {
+      enable = true;
+      # settings = {
+      #   screencast = {
+      #     output_name = "eDP-1";
+      #     max_fps = 30;
+      #     chooser_type = "simple";
+      #     chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+      #   };
+      # };
+    };
   };
 
   # Enable sound
@@ -166,9 +176,12 @@
     #upower dbus
     upower.enable = true;
 
-    # Solve AT-SPI error
-    gnome.at-spi2-core.enable = true;
-
+    gnome = {
+      # Solve 'org.freedesktop.secrets' error
+      gnome-keyring.enable = true;
+      # Solve AT-SPI error
+      at-spi2-core.enable = true;
+    };
     # Enable Firmware manager
     fwupd = {
       enable = true;
@@ -186,8 +199,7 @@
 
     # Custom DNS
     resolvconf.enable = false;
-    nameservers = [ "192.168.1.8" "8.8.8.8" "1.1.1.1" ];
-
+    nameservers = [ "192.168.1.100" "8.8.8.8" "1.1.1.1" ];
     firewall = {
       enable = false;
       ##Open ports in the firewall.
