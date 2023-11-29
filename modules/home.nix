@@ -60,6 +60,7 @@
       pciutils
       qbittorrent
       qdigidoc
+      qflipper
       remmina
       ripgrep
       s3cmd

@@ -90,8 +90,8 @@ input * xkb_layout "us,ir"
 input * xkb_options "grp:alt_shift_toggle"
 
 ### Key bindings# Autofocus on hover, also when switching workspaces
-        focus_follows_mouse always
-#
+    focus_follows_mouse always
+    
     # Start a terminal
     bindsym $mod+Return exec $term
 

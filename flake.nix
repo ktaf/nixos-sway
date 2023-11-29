@@ -24,6 +24,7 @@
             ./hardware-configuration.nix
             nixos-hardware.nixosModules.dell-xps-15-9510
             nixos-hardware.nixosModules.dell-xps-15-9510-nvidia
+            nixos-hardware.nixosModules.common-hidpi
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -39,5 +40,4 @@
     };
 }
 
-#nixos-23.11
-
+#nixos-24.05
