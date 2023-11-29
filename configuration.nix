@@ -76,6 +76,11 @@
       extraModules = [ pkgs.pulseaudio-modules-bt ];
     };
     bluetooth = { enable = true; };
+    opengl.extraPackages = with pkgs;
+      [
+        # trying to fix `WLR_RENDERER=vulkan sway`
+        vulkan-validation-layers
+      ];
   };
 
   # Allow unfree packages
@@ -119,6 +124,7 @@
     };
     #Flatpak
     flatpak.enable = true;
+    # flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     #locate
     # locate.enable = true;
 
