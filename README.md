@@ -9,3 +9,6 @@ Create this to try a new setup based on another Wayland compositor tiling window
 nix develop --extra-experimental-features nix-command --extra-experimental-features flakes
 nix flake update
 sudo nixos-rebuild switch --flake .#kourosh
+```
+
+Moved to https://github.com/ktaf/nixcfg
